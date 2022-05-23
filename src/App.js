@@ -1,11 +1,13 @@
 import "./App.css";
+import React from "react";
+import Header from "./components/Header/Header";
+import Shop from "./components/Shop/Shop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>I am a React Person.</p>
-      </header>
+    <div>
+      <Header></Header>
+      <Shop></Shop>
     </div>
   );
 }
