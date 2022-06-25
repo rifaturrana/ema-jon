@@ -1,13 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Product from "../Product/Product";
 import "./Cart.css";
 const Cart = (props) => {
   const cart = props.cart;
-  console.log(cart);
-  const totalPrice = cart.reduce((total, prd) => total + prd.price, 0);
-  //   let totalPrice = 0;
-  //   for (let i = 0; i < cart.length; i++) {
-  //     totalPrice = totalPrice + cart[i].price;
-  //   }
+
+  // const totalPrice = cart.reduce(
+  //   (total, prd) => total + prd.price * prd.quantity,
+  //   0
+  // );
+  let totalPrice = 0;
+  for (let i = 0; i < cart.length; i++) {
+    totalPrice = totalPrice + cart[i].price * cart[i].quantity;
+  }
 
   var shipping = 0;
   if (totalPrice > 35) {
@@ -39,6 +44,8 @@ const Cart = (props) => {
         <small>Tax+Vat: {formatNumber(tax)}</small>
       </p>
       <p>Total Price: ${grandTotal}</p>
+      <br />
+      {props.children}
     </div>
   );
 };
